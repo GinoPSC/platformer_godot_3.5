@@ -10,7 +10,7 @@ const folder_name = "logs/";
 const LOG_FOLDER_PATH = "res://"+folder_name;
 var exe_path = OS.get_executable_path().get_base_dir().plus_file(folder_name);
 
-var logging_enabled := true;
+var logging_enabled := false;
 
 func _ready():
 	var result = null;

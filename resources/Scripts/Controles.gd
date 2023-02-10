@@ -103,9 +103,9 @@ func _get_local_input() -> Dictionary:
 	if input_control_dw.size() != 0:
 		input["input_control_dw"] = input_control_dw;
 	
-#	var characters = self.get_tree().get_nodes_in_group("Character");
-#	input["position"] = characters[IDJ].get_character_state()[0];
-#	input["motion"] = characters[IDJ].get_character_state()[1];
+	var characters = self.get_tree().get_nodes_in_group("Character");
+	input["position"] = characters[IDJ].get_character_state()[0];
+	input["motion"] = characters[IDJ].get_character_state()[1];
 	
 	return input;
 

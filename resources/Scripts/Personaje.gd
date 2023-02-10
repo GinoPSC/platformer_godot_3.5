@@ -52,19 +52,19 @@ func _ready():
 func get_character_state():
 	return [self.position, motion];
 
-func _save_state() ->Dictionary:
-	return {
-		position_x = self.position.x,
-		position_y = self.position.y,
-		motion_x = motion.x,
-		motion_y = motion.y
-	}
-
-func _load_state(state: Dictionary):
-	self.position.x = state['position_x'];
-	self.position.y = state['position_y'];
-	motion.x = state['motion_x'];
-	motion.y = state['motion_y'];
+#func _save_state() ->Dictionary:
+#	return {
+#		position_x = self.position.x,
+#		position_y = self.position.y,
+#		motion_x = motion.x,
+#		motion_y = motion.y
+#	}
+#
+#func _load_state(state: Dictionary):
+#	self.position.x = state['position_x'];
+#	self.position.y = state['position_y'];
+#	motion.x = state['motion_x'];
+#	motion.y = state['motion_y'];
 
 func Crouch_HurtBox(idx):
 	var crouch_hurt_box = idx;
