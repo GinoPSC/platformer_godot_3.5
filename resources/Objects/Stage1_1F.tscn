@@ -1,0 +1,84 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://resources/Sprites/Stages/front_5.png" type="Texture" id=1]
+[ext_resource path="res://resources/Sprites/Stages/front_6.png" type="Texture" id=2]
+[ext_resource path="res://resources/Sprites/Stages/front_1.png" type="Texture" id=4]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_1.png" type="Texture" id=5]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_3.png" type="Texture" id=6]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_7.png" type="Texture" id=7]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_8.png" type="Texture" id=8]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_4.png" type="Texture" id=9]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_5.png" type="Texture" id=10]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_2.png" type="Texture" id=11]
+[ext_resource path="res://resources/Sprites/Stages/river_1/rvr1_6.png" type="Texture" id=12]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_2.png" type="Texture" id=13]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_6.png" type="Texture" id=14]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_1.png" type="Texture" id=15]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_7.png" type="Texture" id=16]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_3.png" type="Texture" id=17]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_5.png" type="Texture" id=18]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_4.png" type="Texture" id=19]
+[ext_resource path="res://resources/Sprites/Stages/Cascada 2/2_8.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="Stage1_1F" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 1183.0
+margin_top = 178.0
+margin_right = 1249.0
+margin_bottom = 218.0
+texture = ExtResource( 1 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 1358.0
+margin_top = 125.0
+margin_right = 1509.0
+margin_bottom = 209.0
+texture = ExtResource( 2 )
+
+[node name="front_river_1" type="AnimatedSprite" parent="."]
+position = Vector2( 2950.5, 208 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="front_river_2" type="AnimatedSprite" parent="."]
+position = Vector2( 2630.5, 208 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="front_river_3" type="AnimatedSprite" parent="."]
+position = Vector2( 2310.5, 208 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 3736, 72 )
+frames = SubResource( 2 )
+frame = 4
+playing = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 3112.0
+margin_top = -1.0
+margin_right = 3254.0
+margin_bottom = 224.0
+texture = ExtResource( 4 )

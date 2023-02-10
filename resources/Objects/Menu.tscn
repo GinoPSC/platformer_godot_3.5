@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://resources/Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://resources/Fonts/ARCADE_N.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/Fonts/Metal-Slug.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8, 0.796078, 0.227451, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 11
+font_data = ExtResource( 2 )
+
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float r_vertical;
+uniform float g_vertical;
+uniform float b_vertical;
+
+uniform float r_color2;
+uniform float g_color2;
+uniform float b_color2;
+
+void fragment()
+{
+	float texture_alpha = texture(TEXTURE, UV).a;
+
+	COLOR = vec4(
+		UV.y * r_vertical * intensity + r_color2 - UV.y * r_vertical * intensity,
+		UV.y * g_vertical * intensity + g_color2 - UV.y * r_vertical * intensity,
+		UV.y * b_vertical * intensity + b_color2 - UV.y * r_vertical * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 9 )
+shader_param/intensity = 1.0
+shader_param/r_vertical = 18.0
+shader_param/g_vertical = 0.0
+shader_param/b_vertical = 0.0
+shader_param/r_color2 = 1.4
+shader_param/g_color2 = 1.4
+shader_param/b_color2 = 0.0
+
+[sub_resource type="DynamicFont" id=10]
+size = 11
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Pause" type="Panel" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 280.0
+margin_bottom = 204.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="P_SW" type="Label" parent="Pause"]
+margin_left = 103.0
+margin_top = 16.0
+margin_right = 159.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "PAUSE"
+
+[node name="Pause" type="Label" parent="Pause"]
+material = SubResource( 8 )
+margin_left = 102.0
+margin_top = 15.0
+margin_right = 158.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 6 )
+text = "PAUSE"
+
+[node name="in_sw" type="Label" parent="Pause"]
+margin_left = 15.0
+margin_top = 149.0
+margin_right = 246.0
+margin_bottom = 169.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "PRESS BOMB TO GO BACK"
+
+[node name="info" type="Label" parent="Pause"]
+margin_left = 14.0
+margin_top = 148.0
+margin_right = 245.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "PRESS BOMB TO GO BACK"

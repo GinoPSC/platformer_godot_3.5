@@ -1,0 +1,475 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://resources/Fonts/Metal-Slug.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/Sprites/infinito.png" type="Texture" id=2]
+[ext_resource path="res://resources/Scripts/Overlay.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=35]
+size = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=36]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.726563, 0.726563, 0.726563, 1 )
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_offset = Vector2( 10, 10 )
+
+[sub_resource type="Shader" id=29]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float white;
+uniform float black;
+
+void fragment(){
+	float texture_alpha = texture(TEXTURE, UV).a;
+	COLOR = vec4(
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = SubResource( 29 )
+shader_param/intensity = 1.0
+shader_param/white = 1.1
+shader_param/black = 10.0
+
+[sub_resource type="Shader" id=31]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float white;
+uniform float black;
+
+void fragment(){
+	float texture_alpha = texture(TEXTURE, UV).a;
+	COLOR = vec4(
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=39]
+shader = SubResource( 31 )
+shader_param/intensity = 1.0
+shader_param/white = 1.1
+shader_param/black = 10.0
+
+[sub_resource type="Shader" id=17]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float r_vertical;
+uniform float g_vertical;
+uniform float b_vertical;
+
+uniform float r_color2;
+uniform float g_color2;
+uniform float b_color2;
+
+void fragment()
+{
+	float texture_alpha = texture(TEXTURE, UV).a;
+
+	COLOR = vec4(
+		UV.y * r_vertical * intensity + r_color2 - UV.y * r_vertical * intensity,
+		UV.y * g_vertical * intensity + g_color2 - UV.y * r_vertical * intensity,
+		UV.y * b_vertical * intensity + b_color2 - UV.y * r_vertical * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=40]
+shader = SubResource( 17 )
+shader_param/intensity = 1.0
+shader_param/r_vertical = 20.0
+shader_param/g_vertical = 0.0
+shader_param/b_vertical = 0.0
+shader_param/r_color2 = 1.5
+shader_param/g_color2 = 1.5
+shader_param/b_color2 = 0.0
+
+[sub_resource type="DynamicFont" id=41]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=25]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float r_vertical;
+uniform float g_vertical;
+uniform float b_vertical;
+
+uniform float r_color2;
+uniform float g_color2;
+uniform float b_color2;
+
+void fragment()
+{
+	float texture_alpha = texture(TEXTURE, UV).a;
+
+	COLOR = vec4(
+		UV.y * r_vertical * intensity + r_color2 - UV.y * r_vertical * intensity,
+		UV.y * g_vertical * intensity + g_color2 - UV.y * r_vertical * intensity,
+		UV.y * b_vertical * intensity + b_color2 - UV.y * r_vertical * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=42]
+shader = SubResource( 25 )
+shader_param/intensity = 1.0
+shader_param/r_vertical = 1.0
+shader_param/g_vertical = 0.0
+shader_param/b_vertical = 0.0
+shader_param/r_color2 = 1.1
+shader_param/g_color2 = 1.1
+shader_param/b_color2 = 0.0
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=44]
+bg_color = Color( 0.215686, 0.231373, 0.392157, 0.588235 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=46]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float r_vertical;
+uniform float g_vertical;
+uniform float b_vertical;
+
+uniform float r_color2;
+uniform float g_color2;
+uniform float b_color2;
+
+void fragment()
+{
+	float texture_alpha = texture(TEXTURE, UV).a;
+
+	COLOR = vec4(
+		UV.y * r_vertical * intensity + r_color2 - UV.y * r_vertical * intensity,
+		UV.y * g_vertical * intensity + g_color2 - UV.y * r_vertical * intensity,
+		UV.y * b_vertical * intensity + b_color2 - UV.y * r_vertical * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=47]
+shader = SubResource( 18 )
+shader_param/intensity = 2.0
+shader_param/r_vertical = 36.0
+shader_param/g_vertical = 20.0
+shader_param/b_vertical = null
+shader_param/r_color2 = 2.0
+shader_param/g_color2 = 2.0
+shader_param/b_color2 = 2.0
+
+[sub_resource type="Shader" id=27]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float white;
+uniform float black;
+
+void fragment(){
+	float texture_alpha = texture(TEXTURE, UV).a;
+	COLOR = vec4(
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=48]
+shader = SubResource( 27 )
+shader_param/intensity = 1.0
+shader_param/white = 1.1
+shader_param/black = 12.0
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0.372549, 0.372549, 0.372549, 0 )
+
+[sub_resource type="DynamicFont" id=50]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=51]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float intensity;
+
+uniform float white;
+uniform float black;
+
+void fragment(){
+	float texture_alpha = texture(TEXTURE, UV).a;
+	COLOR = vec4(
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		UV.y * white * intensity + white - UV.y * black * intensity,
+		texture_alpha
+	);
+}"
+
+[sub_resource type="ShaderMaterial" id=52]
+shader = SubResource( 51 )
+shader_param/intensity = 2.0
+shader_param/white = 1.1
+shader_param/black = 5.0
+
+[node name="Overlay" type="Panel"]
+anchor_right = 1.0
+margin_right = -150.0
+margin_bottom = 40.0
+custom_styles/panel = SubResource( 32 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="s_ammo" type="Panel" parent="."]
+margin_left = 73.0
+margin_top = 9.0
+margin_right = 135.0
+margin_bottom = 28.0
+custom_styles/panel = SubResource( 33 )
+
+[node name="text_bombs" type="Label" parent="s_ammo"]
+anchor_bottom = 1.0
+margin_left = 34.0
+margin_top = -2.0
+margin_right = 58.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 34 )
+text = "BOMB"
+percent_visible = -0.25
+
+[node name="text_arms" type="Label" parent="s_ammo"]
+margin_left = 6.0
+margin_top = -2.0
+margin_right = 30.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 35 )
+text = "ARMS"
+
+[node name="bombs" type="Label" parent="s_ammo"]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 66.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 36 )
+text = "00"
+align = 1
+
+[node name="unlimited" type="TextureRect" parent="s_ammo"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 28.0
+margin_bottom = 18.0
+texture = ExtResource( 2 )
+
+[node name="AMMO" type="Panel" parent="."]
+margin_left = 72.0
+margin_top = 8.0
+margin_right = 134.0
+margin_bottom = 27.0
+custom_styles/panel = SubResource( 37 )
+
+[node name="text_bombs" type="Label" parent="AMMO"]
+material = SubResource( 38 )
+margin_left = 34.0
+margin_top = -2.0
+margin_right = 58.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 34 )
+text = "BOMB"
+
+[node name="text_arms" type="Label" parent="AMMO"]
+material = SubResource( 39 )
+margin_left = 6.0
+margin_top = -2.0
+margin_right = 30.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 35 )
+text = "ARMS"
+
+[node name="bombs" type="Label" parent="AMMO"]
+material = SubResource( 40 )
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 66.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 41 )
+text = "00"
+align = 1
+
+[node name="bombsL" type="Label" parent="AMMO"]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 66.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 36 )
+text = "00"
+align = 1
+
+[node name="unlimited" type="TextureRect" parent="AMMO"]
+material = SubResource( 42 )
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 28.0
+margin_bottom = 18.0
+texture = ExtResource( 2 )
+
+[node name="s_info" type="Panel" parent="."]
+margin_left = 15.0
+margin_top = 19.0
+margin_right = 66.0
+margin_bottom = 25.0
+custom_styles/panel = SubResource( 43 )
+
+[node name="INFO" type="Panel" parent="."]
+margin_left = 14.0
+margin_top = 18.0
+margin_right = 65.0
+margin_bottom = 24.0
+custom_styles/panel = SubResource( 44 )
+
+[node name="l_shadow" type="Label" parent="INFO"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 46.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 45 )
+text = "1UP=2"
+
+[node name="s_shadow" type="Label" parent="INFO"]
+margin_left = 13.0
+margin_top = -14.0
+margin_right = 58.0
+margin_bottom = 3.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 46 )
+text = "0"
+align = 2
+
+[node name="lifes" type="Label" parent="INFO"]
+material = SubResource( 47 )
+margin_top = 2.0
+margin_right = 45.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 45 )
+text = "1UP=2"
+
+[node name="score" type="Label" parent="INFO"]
+material = SubResource( 48 )
+margin_left = 12.0
+margin_top = -15.0
+margin_right = 57.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 20, 63 )
+custom_fonts/font = SubResource( 46 )
+text = "0"
+align = 2
+
+[node name="START" type="Panel" parent="."]
+visible = false
+margin_top = 8.0
+margin_right = 150.0
+margin_bottom = 30.0
+size_flags_stretch_ratio = 0.0
+custom_styles/panel = SubResource( 49 )
+
+[node name="PS_Shadow" type="Label" parent="START"]
+margin_left = 15.0
+margin_top = -10.0
+margin_right = 145.0
+margin_bottom = 11.0
+rect_scale = Vector2( 1, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "PRESS START"
+
+[node name="Press_Start" type="Label" parent="START"]
+material = SubResource( 52 )
+margin_left = 14.0
+margin_top = -11.0
+margin_right = 144.0
+margin_bottom = 10.0
+rect_scale = Vector2( 1, 2 )
+custom_fonts/font = SubResource( 50 )
+text = "PRESS START"
